@@ -12,7 +12,6 @@ A full-stack Expense Tracker app to manage your income and expenses efficiently.
 - 📆 Filter transactions by date
 - 🔎 View recent transactions
 - 📁 Download income/expense data in Excel
-- 🌗 Optional dark/light theme support
 
 ---
 
