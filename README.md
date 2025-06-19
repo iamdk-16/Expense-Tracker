@@ -55,7 +55,7 @@ cd backend
 npm install
 ```
 
-Create a .env file inside /backend:
+- Create a .env file inside /backend:
 
 ```.env
 MONGO_URI=your_mongo_connection_string
@@ -63,7 +63,7 @@ JWT_SECRET=your_jwt_secret
 PORT=8000
 ```
 
-Run the backend server
+- Run the backend server
 ```bash
 npm run dev
 ```
@@ -75,13 +75,13 @@ cd frontend/expense-tracker
 npm install
 ```
 
-Create a .env file inside /frontend/expense-tracker:
+- Create a .env file inside /frontend/expense-tracker:
 
 ```env
 VITE_BASE_URL=http://localhost:8000
 ```
 
-Run the frontend
+- Run the frontend
 ```bash
 npm run dev
 ```
