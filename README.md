@@ -35,8 +35,8 @@ A full-stack Expense Tracker app to manage your income and expenses efficiently.
 ## 📁 Folder Structure
 
 Expense-Tracker/
-├── backend/ → Node.js Express API
-├── frontend/expense-tracker/ → Vite + React frontend
+- ├── backend/ → Node.js Express API
+- ├── frontend/expense-tracker/ → Vite + React frontend
 
 ---
 
@@ -47,5 +47,5 @@ Expense-Tracker/
 ---
 
 ## 🧑‍💼 Author
-Ishaan Pathak
-📫 https://github.com/IshaanPathak25
+- Ishaan Pathak
+- 📫 https://github.com/IshaanPathak25
