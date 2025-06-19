@@ -48,4 +48,4 @@ Expense-Tracker/
 
 ## 🧑‍💼 Author
 - Ishaan Pathak
-- 📫 https://github.com/IshaanPathak25
+- 📫 [GitHub](https://github.com/IshaanPathak25)
