@@ -39,6 +39,55 @@ Expense-Tracker/
 
 ---
 
+## 🛠️ Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/IshaanPathak25/Expense-Tracker.git
+cd Expense-Tracker
+```
+
+### 2. Backend setup
+
+```bash
+cd backend
+npm install
+```
+
+Create a .env file inside /backend:
+
+```.env
+MONGO_URI=your_mongo_connection_string
+JWT_SECRET=your_jwt_secret
+PORT=8000
+```
+
+Run the backend server
+```bash
+npm run dev
+```
+
+### 3. Frontend setup
+
+```bash
+cd frontend/expense-tracker
+npm install
+```
+
+Create a .env file inside /frontend/expense-tracker:
+
+```env
+VITE_BASE_URL=http://localhost:8000
+```
+
+Run the frontend
+```bash
+npm run dev
+```
+
+---
+
 ## 🙌 Acknowledgements
 - Inspired by modern personal finance tools
 - Built using best practices in the MERN stack
