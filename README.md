@@ -19,13 +19,9 @@ Auth	JWT, bcrypt
 📸 Screenshots
 
 #### **🚀 Expense-Tracker Interface**
-![Notes App Main Page](screenshots/dashboard.png)
-
-#### **📊 Prometheus Monitoring**
-![Prometheus Targets](screenshots/prometheus.png)
-
-#### **📈 Grafana Dashboard**
-![Grafana Dashboard](screenshots/grafana.png)
+![Dashboard](./screenshots/dashboard.png)
+![Prometheus](./screenshots/prometheus.png)
+![Grafana](./screenshots/grafana.png)
 
 
 ⚙️ Quick Start
