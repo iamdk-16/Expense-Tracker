@@ -1,99 +1,130 @@
-# 💸 SpendWise: Expense Tracker
+💰 Expense Tracker - DevOps Monitoring Project
 
-SpendWise is a full-stack Expense Tracker app to manage your income and expenses efficiently. Built with **React (Vite)** on the frontend, **Node.js (Express)** for the backend, and **MongoDB** for data storage.
+Full-stack expense tracking app with integrated monitoring using Docker Compose, Prometheus & Grafana.
 
----
+🏗️ Overview
 
-## 📦 Features
+A production-ready Expense Tracker with end-to-end monitoring and observability.
+This project demonstrates real-world DevOps practices — containerization, orchestration, metrics collection, and dashboard visualization.
 
-- 🔐 User authentication with JWT
-- 💰 Add, update, and delete income/expenses
-- 📊 Graphs and charts for insights (Bar/Pie)
-- 📆 Filter transactions by date
-- 🔎 View recent transactions
-- 📁 Download income/expense data in Excel
+🔹 Tech Stack
+Category	Technologies
+Frontend	React.js (Vite, Material-UI)
+Backend	Node.js, Express.js
+Database	MongoDB Atlas
+DevOps	Docker, Docker Compose
+Monitoring	Prometheus, Grafana, Node Exporter
+Auth	JWT, bcrypt
 
----
+📸 Screenshots
 
-## 🧑‍💻 Tech Stack
+#### **🚀 Expense-Tracker Interface**
+![Notes App Main Page](screenshots/dashboard.png)
 
-### Frontend ⚛️
-- React + Vite
-- Tailwind CSS
-- Recharts
-- Axios
+#### **📊 Prometheus Monitoring**
+![Prometheus Targets](screenshots/prometheus.png)
 
-### Backend 🛠️
-- Node.js + Express
-- MongoDB + Mongoose
-- JWT (Authentication)
-- dotenv
+#### **📈 Grafana Dashboard**
+![Grafana Dashboard](screenshots/grafana.png)
 
----
 
-## 📁 Folder Structure
+⚙️ Quick Start
+Prerequisites
 
-Expense-Tracker/
-- ├── backend/ → Node.js Express API
-- ├── frontend/expense-tracker/ → Vite + React frontend
+Docker & Docker Compose installed
 
----
+MongoDB Atlas connection string
 
-## 🛠️ Setup Instructions
+4 GB RAM recommended
 
-### 1. Clone the repository
+Setup & Run
+git clone https://github.com/yourusername/expense-tracker-devops.git
+cd expense-tracker-devops
+cp .env.example .env
+# update MongoDB URI in .env
 
-```bash
-git clone https://github.com/IshaanPathak25/Expense-Tracker.git
-cd Expense-Tracker
-```
+docker-compose up --build -d
 
-### 2. Backend setup
+Access Services
+Service	URL	Description
+🌐 Frontend	http://localhost:3000
+	React app
+🔧 Backend	http://localhost:8000
+	REST APIs
+❤️ Health Check	http://localhost:8000/health
+	App status
+📊 Prometheus	http://localhost:9090
+	Metrics
+📈 Grafana	http://localhost:3001
+	Dashboards (admin/admin123)
+📈 Monitoring Highlights
 
-```bash
-cd backend
-npm install
-```
+Custom Prometheus metrics at /metrics endpoint
 
-- Create a .env file inside /backend:
+Health check at /health for container orchestration
 
-```.env
-MONGO_URI=your_mongo_connection_string
-JWT_SECRET=your_jwt_secret
-PORT=8000
-```
+Node Exporter for system resource tracking
 
-- Run the backend server
-```bash
-npm run dev
-```
+Grafana Dashboards for real-time visualization
 
-### 3. Frontend setup
+Metrics include:
 
-```bash
-cd frontend/expense-tracker
-npm install
-```
+API response latency
 
-- Create a .env file inside /frontend/expense-tracker:
+Database connection health
 
-```env
-VITE_BASE_URL=http://localhost:8000
-```
+Request/transaction rates
 
-- Run the frontend
-```bash
-npm run dev
-```
+Memory & CPU usage
 
----
+🐳 Docker Compose Architecture
+services:
+  frontend:
+    build: ./frontend/expense-tracker
+    ports: ["3000:80"]
+    depends_on: [backend]
 
-## 🙌 Acknowledgements
-- Inspired by modern personal finance tools
-- Built using best practices in the MERN stack
+  backend:
+    build: ./backend
+    ports: ["8000:8000"]
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - JWT_SECRET=${JWT_SECRET}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      retries: 3
 
----
+  prometheus:
+    image: prom/prometheus
+    ports: ["9090:9090"]
+    volumes: ["./prometheus.yml:/etc/prometheus/prometheus.yml"]
 
-## 🧑‍💼 Author
-- Ishaan Pathak
-- 📫 [GitHub](https://github.com/IshaanPathak25)
+  grafana:
+    image: grafana/grafana
+    ports: ["3001:3000"]
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin123
+    volumes: ["grafana-storage:/var/lib/grafana"]
+
+  node-exporter:
+    image: prom/node-exporter
+    ports: ["9100:9100"]
+
+🚀 Key DevOps Features
+
+🐳 Dockerized multi-service stack (frontend + backend + monitoring)
+
+📊 Prometheus & Grafana integration
+
+🧠 Custom metrics & health endpoints
+
+🔒 JWT authentication & secure config management
+
+⚡ Production-grade observability setup
+
+👨‍💻 Author
+
+Dinesh Kunjeda
+
+💻 GitHub:https://github.com/iamdk-16
